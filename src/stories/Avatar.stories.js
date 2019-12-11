@@ -1,12 +1,15 @@
 import React from 'react';
-
+import { withKnobs, select, boolean } from '@storybook/addon-knobs';
 import { Avatar } from '../components/Avatar';
+
+
 
 export default {
   title: 'Design System|Avatar',
-
+  
   parameters: {
     component: Avatar,
+    componentSubtitle: 'Displays an image that represents a user or organization',
   },
 };
 
@@ -42,6 +45,11 @@ export const sizes = () => (
     />
   </div>
 );
+sizes.story = {
+  parameters: { docs: { storyDescription: '4 sizes are supported.' } },
+};
+
+
 
 export const initials = () => (
   <div>
@@ -72,3 +80,16 @@ export const large = () => (
     />
   </div>
 );
+
+export const knobs = () => (
+  <Avatar
+    loading={boolean('Loading')}
+    size={select('Size', ['tiny', 'small', 'medium', 'large'])}
+    username="Dominic Nguyen"
+    src="https://avatars2.githubusercontent.com/u/263385"
+  />
+);
+
+knobs.story = {
+  decorators: [withKnobs],
+};
