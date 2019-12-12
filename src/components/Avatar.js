@@ -137,6 +137,7 @@ Avatar.propTypes = {
   size: PropTypes.oneOf(Object.keys(sizes)),
 };
 
+
 Avatar.defaultProps = {
   loading: false,
   username: 'loading',
